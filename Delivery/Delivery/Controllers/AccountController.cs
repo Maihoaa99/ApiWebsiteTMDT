@@ -26,10 +26,10 @@ namespace Delivery.Controllers
         {
             var client = new HttpClient();
             var field = typeof(System.Net.Http.Headers.HttpRequestHeaders)
-                        .GetField("invalidHeaders", System.Reflection.BindingFlags.NonPublic 
-                        | System.Reflection.BindingFlags.Static) ?? typeof(System.Net.Http.Headers.HttpRequestHeaders)
-                        .GetField("s_invalidHeaders", System.Reflection.BindingFlags.NonPublic 
-                        | System.Reflection.BindingFlags.Static);
+                            .GetField("invalidHeaders", System.Reflection.BindingFlags.NonPublic 
+                            | System.Reflection.BindingFlags.Static) ?? typeof(System.Net.Http.Headers.HttpRequestHeaders)
+                            .GetField("s_invalidHeaders", System.Reflection.BindingFlags.NonPublic 
+                            | System.Reflection.BindingFlags.Static);
             if (field != null)
             {
                 var invalidFields = (HashSet<string>)field.GetValue(null);
@@ -51,7 +51,7 @@ namespace Delivery.Controllers
                 var account = await GetAccount(accountLogin.username, accountLogin.password);
                 if(account != null)
                 {
-                    //create claims detaild based on the account information
+                    //create claims details based on the account information
                     var claims = new[]
                     {
                         new Claim(JwtRegisteredClaimNames.Sub, _configuration["Jwt:Subject"]),
@@ -63,8 +63,8 @@ namespace Delivery.Controllers
                     var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
                     var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
                     var token = new JwtSecurityToken(_configuration["Jwt:Issuer"],
-                        _configuration["Jwt:Audience"], claims, expires: DateTime.UtcNow.AddDays(1),
-                        signingCredentials: signIn);
+                                _configuration["Jwt:Audience"], claims, expires: DateTime.UtcNow.AddDays(1),
+                                signingCredentials: signIn);
                     return Ok(new JwtSecurityTokenHandler().WriteToken(token));
                 }
                 else

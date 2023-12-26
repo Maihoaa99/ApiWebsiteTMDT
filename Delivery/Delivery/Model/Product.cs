@@ -14,7 +14,7 @@ namespace Delivery.Model
         [ForeignKey("category_id")]
         public Category? category { get; set; }
         public Guid unit_id { get; set; }
-        public string? unit_price { get; set; }
+        public int unit_price { get; set; }
         public string? image { get; set;}
         public bool is_hidden { get; set; }
     }
