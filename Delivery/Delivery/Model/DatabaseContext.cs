@@ -2,11 +2,13 @@
 
 namespace Delivery.Model
 {
-    public class ProductContext : DbContext
+    public class DatabaseContext : DbContext
     {
-        public ProductContext(DbContextOptions<ProductContext> options) : base(options) { }
+        public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options) { }
 
-        public DbSet<Product> Products { get; set;}
+        public DbSet<Accounts> Accounts { get; set; }
+        public DbSet<Category> Categorys { get; set; }
+        public DbSet<Product> Products { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

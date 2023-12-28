@@ -11,9 +11,9 @@ namespace Delivery.Controllers
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class ProductController : ControllerBase
     {
-        private readonly ProductContext _productContext;
+        private readonly DatabaseContext _productContext;
 
-        public ProductController(ProductContext context)
+        public ProductController(DatabaseContext context)
         {
             _productContext = context;
         }
@@ -26,7 +26,6 @@ namespace Delivery.Controllers
         }
 
         [HttpGet("{id}")]
-        [ActionName(nameof(GetProduct))]
         public async Task<ActionResult<Product>> GetProduct(Guid id)
         {
             var product = await _productContext.Products.FindAsync(id);
@@ -51,13 +50,13 @@ namespace Delivery.Controllers
         [HttpPost("{id}")]
         public async Task<ActionResult<Product>> UpdateProduct(Product product, Guid id, int code)
         {
-            var productt = await _productContext.Products.FindAsync(id);
-            if (productt != null)
+            var oldProduct = await _productContext.Products.FindAsync(id);
+            if (oldProduct != null)
             {
                 // delete -> update is_hidden = false
-                productt.is_hidden = false;
-                _productContext.Products.Update(productt);
-                if(productt.code == product.code)
+                oldProduct.is_hidden = false;
+                _productContext.Products.Update(oldProduct);
+                if(oldProduct.code == product.code)
                 {
                     // add khi code trung product cu
                     _productContext.Products.Add(product);

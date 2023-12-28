@@ -32,20 +32,17 @@ builder.Services.AddAuthentication(options => {
 });
 
 //lien ket xac thuc admin 
-builder.Services.AddOptions<AccountLogin>()
+builder.Services.AddOptions<Accounts>()
     .Bind(builder.Configuration.GetSection("AccountLogin"))
     .ValidateDataAnnotations();
 
-builder.Services.AddDbContext<AccountContext>(options =>
+builder.Services.AddDbContext<DatabaseContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("Account")));
 
-builder.Services.AddDbContext<AccountLoginContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("AccountLogin")));
-
-builder.Services.AddDbContext<ProductContext>(options =>
+builder.Services.AddDbContext<DatabaseContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("Product")));
 
-builder.Services.AddDbContext<CategoryContext>(options =>
+builder.Services.AddDbContext<DatabaseContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("Category")));
 
 var app = builder.Build();

@@ -11,9 +11,9 @@ namespace Delivery.Controllers
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class CategoryController : ControllerBase
     {
-        private readonly CategoryContext _categoryContext;
+        private readonly DatabaseContext _categoryContext;
 
-        public CategoryController(CategoryContext context)
+        public CategoryController(DatabaseContext context)
         {
             _categoryContext = context;
         }

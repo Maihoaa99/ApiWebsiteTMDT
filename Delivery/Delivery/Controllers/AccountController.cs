@@ -1,4 +1,5 @@
 ﻿using Delivery.DTO;
+using Delivery.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -14,15 +15,15 @@ namespace Delivery.Controllers
     public class AccountController : ControllerBase
     { 
         public IConfiguration _configuration;
-        private readonly AccountLoginContext _context;
+        private readonly DatabaseContext _context;
         
-        public AccountController(IConfiguration config ,AccountLoginContext context)
+        public AccountController(IConfiguration config , DatabaseContext context)
         {
             _configuration = config; 
             _context = context;
         }
 
-        private async Task<AccountLogin> GetAccount(string username, string password)
+        private async Task<Accounts> GetAccount(string username, string password)
         {
             var client = new HttpClient();
             var field = typeof(System.Net.Http.Headers.HttpRequestHeaders)
@@ -36,11 +37,11 @@ namespace Delivery.Controllers
                 invalidFields.Remove("Content-Type");
             }
             client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json");
-            return await _context.accountLogins.FirstOrDefaultAsync(u => u.username == username && u.password == password);
+            return await _context.Accounts.FirstOrDefaultAsync(u => u.username == username && u.password == password);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(AccountLogin accountLogin)
+        public async Task<IActionResult> DangNhap(Accounts accountLogin)
         {
             // Băm mật khẩu trước khi lưu vào cơ sở dữ liệu
             string hashedPassword = HashPassword(accountLogin.password);

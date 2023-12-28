@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DELL\\Desktop\\Minvoice\\Delivery\\Delivery\\Delivery.csproj": {}
+    "C:\\Users\\DELL\\Documents\\GitHub\\ApiWebsiteTMDT\\Delivery\\Delivery\\Delivery.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DELL\\Desktop\\Minvoice\\Delivery\\Delivery\\Delivery.csproj": {
+    "C:\\Users\\DELL\\Documents\\GitHub\\ApiWebsiteTMDT\\Delivery\\Delivery\\Delivery.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DELL\\Desktop\\Minvoice\\Delivery\\Delivery\\Delivery.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\Documents\\GitHub\\ApiWebsiteTMDT\\Delivery\\Delivery\\Delivery.csproj",
         "projectName": "Delivery",
-        "projectPath": "C:\\Users\\DELL\\Desktop\\Minvoice\\Delivery\\Delivery\\Delivery.csproj",
+        "projectPath": "C:\\Users\\DELL\\Documents\\GitHub\\ApiWebsiteTMDT\\Delivery\\Delivery\\Delivery.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DELL\\Desktop\\Minvoice\\Delivery\\Delivery\\obj\\",
+        "outputPath": "C:\\Users\\DELL\\Documents\\GitHub\\ApiWebsiteTMDT\\Delivery\\Delivery\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",

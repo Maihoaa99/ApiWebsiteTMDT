@@ -13,8 +13,8 @@ namespace Delivery.Controllers
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class UserController : ControllerBase
     {
-        private readonly AccountContext _accountContext;
-        public UserController(AccountContext accountContext) {
+        private readonly DatabaseContext _accountContext;
+        public UserController(DatabaseContext accountContext) {
             _accountContext = accountContext;
         }
 
